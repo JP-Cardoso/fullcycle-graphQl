@@ -1,0 +1,13 @@
+printf '// +build tools\npackage tools\nimport (_ "github.com/99designs/gqlgen"\n _ "github.com/99designs/gqlgen/graphql/introspection")' | gofmt > tools.go
+//Esse cara vai criar um arquivo chamado tools.go
+
+//Rode o go mod tidy, para baixar e sincronizar as depêndencias
+
+---------------------------------------------
+Subimos um servidor graphQL
+go run github.com/99designs/gqlgen init
+---------------------------------------------
+Criando esquema graphQL:
+ - Depois de criar os schemas para o graph,temos que rodar a aplicação novamente
+    para ela se adeque aos novos esquimas:
+    - go run github.com/99designs/gqlgen generate

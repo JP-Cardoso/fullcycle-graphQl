@@ -1,0 +1,39 @@
+# Criando os esquemas no graph
+
+type Category {
+  id: ID!
+  name: String!
+  description: String
+  courses: [Course!]!
+}
+
+type Course {
+  id: ID!
+  name: String!
+  description: String
+  category: Category!
+}
+
+# Dados de entrada
+input NewCategory {
+  name: String!
+  description: String
+}
+
+input NewCourse {
+  name: String!
+  description: String
+  categoryId: ID!
+}
+
+# Listagem total
+type Query {
+  categories: [Category!]!
+  courses: [Course!]!
+}
+
+# Mutation - É quando você faz uma alteração nos dados
+type Mutation {
+  createCategory(input: NewCategory!): Category!
+  createCourse(input: NewCourse!): Course!
+}
